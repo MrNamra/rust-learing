@@ -1,7 +1,11 @@
 fn main() {
-    let age: i32 = 22;
-    println!("My Age is {age}");
+    let x = 5;
+    let x = x + 1;
 
-    let age: bool = true;
-    println!("Showing age variable {age}")
+    {
+        let x = x *2;
+        println!("The Value of x in the inner scope is: {x}");
+    }
+
+    println!("The value of x is {x}")
 }

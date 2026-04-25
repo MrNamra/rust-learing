@@ -1,38 +1,14 @@
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
-
 fn main() {
-    println!("Guess The number!");
+    let mut age = 22;
+    println!("My Age is {age}");
 
-    let secret_no = rand::thread_rng().gen_range(1..=100);
-    println!("the secreat No is {secret_no}");
+    age = 15;
+    println!("My mutables Age is  {age}");
 
-    loop {
+    const ONE_HOUR: u32 = 60 * 60;
 
-        println!("Guess a number: ");
+    const THREE_HOURS: u32 = ONE_HOUR * 3;
 
-        let mut guess: String = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Fail to read user input!");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => {
-                println!("Please Enter Valid Input");
-                continue;
-            }
-        };
-
-        match guess.cmp(&secret_no) {
-            Ordering::Equal => {
-                println!("You Won!");
-                break;
-            }
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Less => println!("Too Small!"),
-        }
-    }
+    println!("Three Hours In seconds is {THREE_HOURS}")
+    
 }
